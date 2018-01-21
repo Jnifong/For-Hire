@@ -3,4 +3,4 @@ A app for users to find and hire professionals for local services. Also a place 
 
 Created by Jacob, Gel, Claire, Kane (respectfully)
 
-Gels Test
+<!--testing merge request for team  -->
