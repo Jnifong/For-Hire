@@ -61,22 +61,4 @@ module.exports = function (app) {
                 res.json(dbPost);
             });
     });
-
-
-    // =============================================================
- 
-
-    // // GET route - random photo
-    // app.get("/workersList/:service", function (req, res) {
-
-
-    //     var hbsObject = {
-    //         photo: photoPic
-    //     };
-    //     console.log("THIS is workers DATA heyyooo", hbsObject);
-    //     res.render("workersList", hbsObject)
-    // })
-
-//===================================================================
-
 }

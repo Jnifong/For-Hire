@@ -15,13 +15,16 @@
         });
     }
 </script> --}}
+
+<img src="/uploads{{file}}">
 {{!-- list of available workers --}}
 {{#each workers}}
     <div class="row">
         <div class="col s12 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{this.url_link}}">
+                    {{!-- <img src="{{this.url_link}}"> --}}
+                    <img src="/uploads{{file}}">
                     <span id="worker-name" class="card-title"></span>
                     <a href="mailto:{{this.email}}?Subject=For Hire" class="btn-floating halfway-fab waves-effect waves-light green" title="Send {{this.name}} a message!">
                         <i class="material-icons">mode_edit</i>
