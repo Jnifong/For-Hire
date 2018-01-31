@@ -15,10 +15,16 @@
         });
     }
 </script> --}}
+
+
 {{!-- list of available workers --}}
-{{#each workers}}
+{{#everyNth workers 3}} 
+{{!-- {{#if isModZeroNotFirst}}
     <div class="row">
-        <div class="col s12 m3">
+        {{!-- {{/if}} --}}
+         {{!-- {{#if isModZero}} --}}
+        <div class="col m3">
+            {{!-- {{/if}} --}}
             <div class="card">
                 <div class="card-image">
                     <img src="{{this.url_link}}">
@@ -35,11 +41,32 @@
                     <p id="email">Email: {{this.email}}</p>
                 </div>
             </div>
+            {{!-- {{#if isLast}} --}}
         </div>
     </div>
-{{/each}}
+{{!-- {{/if}}  --}}
+{{/everyNth}}
 
+<script>
+   Handlebars.registerHelper('everyNth', function (context, every, options) {
+        var fn = options.fn, inverse = options.inverse;
+        var ret = "";
+        if (context && context.length > 0) {
+            for (var i = 0, j = context.length; i < j; i++) {
+                var modZero = i % every === 0;
+                ret = ret + fn(_.extend({}, context[i], {
+                    isModZero: modZero,
+                    isModZeroNotFirst: modZero && i > 0,
+                    isLast: i === context.length - 1
+                }));
+            }
+        } else {
+            ret = inverse(this);
+        }
+        return ret;
+    });
 
+</script>
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
