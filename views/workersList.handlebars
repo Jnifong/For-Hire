@@ -19,62 +19,42 @@
 
 {{!-- list of available workers --}}
 {{#everyNth workers 3}} 
-{{!-- {{#if isModZeroNotFirst}}
+    {{#if isModZeroNotFirst}}
+    </div>
+    {{/if}}
+    {{#if isModZero}}
     <div class="row">
-        {{!-- {{/if}} --}}
-         {{!-- {{#if isModZero}} --}}
-        <div class="col m3">
-            {{!-- {{/if}} --}}
+        {{/if}}
+        <div class="col m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{this.url_link}}">
+                    <img src="{{this.dataValues.url_link}}">
                     <span id="worker-name" class="card-title"></span>
-                    <a href="mailto:{{this.email}}?Subject=For Hire" class="btn-floating halfway-fab waves-effect waves-light green" title="Send {{this.name}} a message!">
+                    <a href="mailto:{{this.dataValues.email}}?Subject=For Hire" class="btn-floating halfway-fab waves-effect waves-light green" title="Send {{this.dataValues.name}} a message!">
                         <i class="material-icons">mode_edit</i>
                     </a>
                 </div>
                 <div class="card-content">
-                    <p id="skill">Name: {{this.name}} </p>
-                    <p id="skill">Service: {{this.service}} </p>
-                    <p id="zipcode">Zipcode: {{this.zip_code}} </p>
-                    <p id="phone">Phone: {{this.phone}}</p>
-                    <p id="email">Email: {{this.email}}</p>
+                    <p id="skill">Name: {{this.dataValues.name}} </p>
+                    <p id="skill">Service: {{this.dataValues.service}} </p>
+                    <p id="zipcode">Zipcode: {{this.dataValues.zip_code}} </p>
+                    <p id="phone">Phone: {{this.dataValues.phone}}</p>
+                    <p id="email">Email: {{this.dataValues.email}}</p>
                 </div>
             </div>
-            {{!-- {{#if isLast}} --}}
         </div>
+     {{#if isLast}}
     </div>
-{{!-- {{/if}}  --}}
+    {{/if}}
 {{/everyNth}}
 
-<script>
-   Handlebars.registerHelper('everyNth', function (context, every, options) {
-        var fn = options.fn, inverse = options.inverse;
-        var ret = "";
-        if (context && context.length > 0) {
-            for (var i = 0, j = context.length; i < j; i++) {
-                var modZero = i % every === 0;
-                ret = ret + fn(_.extend({}, context[i], {
-                    isModZero: modZero,
-                    isModZeroNotFirst: modZero && i > 0,
-                    isLast: i === context.length - 1
-                }));
-            }
-        } else {
-            ret = inverse(this);
-        }
-        return ret;
-    });
-
-</script>
-
 <!--Import jQuery before materialize.js-->
+
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/materialize.min.js"></script>
-<link type="text/style" src="/assets/css/style.css"></script>
-
-
-
+<link type="text/style" src="/assets/css/style.css">
 
 
 

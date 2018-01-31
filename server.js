@@ -32,9 +32,6 @@ var hbs = exphbs.create({
   defaultLayout: "main", 
   helpers: {
     everyNth: function (context, every, options) {
-      console.log(context);
-      console.log(every);
-      console.log(options);
       var fn = options.fn, inverse = options.inverse;
       var ret = "";
       if (context && context.length > 0) {
